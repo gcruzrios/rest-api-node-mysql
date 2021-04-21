@@ -45,11 +45,11 @@ export const postUsuario = async( req: Request , res: Response ) => {
             });
         }
 
-
-        const usuario = new Usuario(body);
-        await usuario.save();
-
-        res.json( usuario );
+        const usuario = await Usuario.create(body);
+        res.json( {usuario} );
+        //const usuario = new Usuario(body);
+        //await usuario.save();
+        //res.json( usuario );
 
 
     } catch (error) {

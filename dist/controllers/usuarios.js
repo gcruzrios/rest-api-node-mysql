@@ -45,9 +45,11 @@ const postUsuario = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
                 msg: 'Ya existe un usuario con el email ' + body.email
             });
         }
-        const usuario = new usuario_1.default(body);
-        yield usuario.save();
-        res.json(usuario);
+        const usuario = yield usuario_1.default.create(body);
+        res.json({ usuario });
+        //const usuario = new Usuario(body);
+        //await usuario.save();
+        //res.json( usuario );
     }
     catch (error) {
         console.log(error);
